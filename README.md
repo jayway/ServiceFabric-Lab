@@ -15,6 +15,22 @@ You can create Service Fabric clusters in many environments. This can be in Azur
 
 Read more about Service Fabric terminology [here](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-technical-overview/)
 
+## Reliable Services Lifecycle
+
+### Startup
+
+- `CreateServiceInstanceListeners` returns a `IEnumerable<ServiceInstanceListener>` where `ServiceInstanceListener` is a factory for `ICommunicationListener`
+- `OpenAsync` is called on `ICommunicationListener` which allows the service to listen for traffic
+- `RunAsync` may be used to setup background workers
+
+### Shutdown
+
+- Call upon deletion, upgrade or move to another node
+- Cancellation token passed to `RunAsync` is cancelled
+- `CloseAsync` is called next
+- Promotion of a secondary doesn't occur until `RunAsync` and `CloseAsync` return
+- Services immediately lose write access to Reliable Collections upon shutdown
+
 ## Scenarios
 
 1. Data computation using reliable services.
