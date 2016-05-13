@@ -31,6 +31,12 @@ Read more about Service Fabric terminology [here](https://azure.microsoft.com/en
 - Promotion of a secondary doesn't occur until `RunAsync` and `CloseAsync` return
 - Services immediately lose write access to Reliable Collections upon shutdown
 
+## Reliable Collections
+
+State is persisted in reliable collections. Reliable collections include implementations of `IReliableDictionary` and `IReliableQueue`. Both inherit from `IReliableCollection` which in turn inherit from `IReliableState`.
+
+Implementation of `IReliableState` are sometimes referred to as "reliable state providers" and their lifecycles are managed by `IStateManager`.
+
 ## Scenarios
 
 1. Data computation using reliable services.
