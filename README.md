@@ -59,3 +59,7 @@ Or check the [Prepare your development environment](https://azure.microsoft.com/
 ## Reliable actors lab
 
 How does it compare to Reliable services?
+
+## Open questions
+
+1. What does the endpoint for a stateful service look like?
