@@ -31,7 +31,7 @@ namespace RpsService
             return new[] { new ServiceReplicaListener((context) =>
             {
                 return new WebApiListener(StateManager, context);
-            }, "RPS") };
+            }, "RPS", true) };
         }
 
         /// <summary>
