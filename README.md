@@ -1,21 +1,20 @@
 # Service Fabric Lab
+This is an exploratory lab session. First, a short introduction.
 
-## What is it?
+## What is Service Fabric?
 Service Fabric is a platform for distributed systems.
 
 ## What problem does Service Fabric solve?
-
 Running a distributed system (think microservices) is both fun and boring. The boring part is packaging, deploying, health monitoring, scalability, etc. Service Fabric handles these parts for you. However, if you find these parts fun, then you don't need Service Fabric :)
 
 ## How do I use Service Fabric?
-
 Both stateful and stateless services can be built with two programming models, [reliable services](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-reliable-services-introduction/) and [reliable actors](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-reliable-actors-introduction/).
 
 You can create Service Fabric clusters in many environments. This can be in Azure or on premises, on Windows Server or on Linux.
 
 Read more about Service Fabric terminology [here](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-technical-overview/)
 
-## Reliable Services Lifecycle
+## What is the lifecycle of Reliable Services?
 
 ### Startup
 
@@ -37,10 +36,10 @@ State is persisted in reliable collections. Reliable collections include impleme
 
 Implementation of `IReliableState` are sometimes referred to as "reliable state providers" and their lifecycles are managed by `IStateManager`.
 
-## Scenarios
+# Exploratory lab scenarios
 
-1. Data computation using reliable services.
-2. Rock, Paper, Scissors using reliable actors.
+1. Implement RPS (Rock, Paper, Scissors) using Reliable Services.
+2. Implement RPS (Rock, Paper, Scissors) using Reliable Actors.
 
 ## Prerequisites
 
@@ -49,16 +48,22 @@ Implementation of `IReliableState` are sometimes referred to as "reliable state 
 
 Or check the [Prepare your development environment](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-get-started/) page.
 
-## Reliable service lab
+## Reliable Service lab
+
+Implement an existing implementation of RPS to use Service Fabric. Here is a list of interesting points:
 
 1. Tooling
 2. Rolling upgrades
 3. Health monitoring
 4. Rollback
 
-## Reliable actors lab
+This lab has been completed and the result is in [RpsReliableServices](https://github.com/jayway/ServiceFabric-Lab/tree/master/RpsReliableServices). The communication with Service Fabric is in [GameController.cs](https://github.com/jayway/ServiceFabric-Lab/blob/master/RpsReliableServices/RpsService/Controllers/GameController.cs) where a `IReliableStateManager` is the integration point. Read more at [Architecture for stateful and stateless Reliable Services](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-reliable-services-platform-architecture/)
 
-How does it compare to Reliable services?
+## Reliable Actors lab
+
+1. How does it compare to Reliable services?
+
+This lab has not been completed.
 
 ## Open questions
 
